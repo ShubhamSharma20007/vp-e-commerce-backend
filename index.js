@@ -29,7 +29,7 @@ app.use(express.urlencoded({ extended: true }));
 // static public path
 
 process.env.NODE_ENV == "producation" ?
-    app.use('/uploads', express.static(path.join(dirname, '/uploads'))) :
+    app.use("/uploads", express.static('uploads')) :
     app.use(express.static(path.join(dirname, "../public")));
 //  cors configuration 
 app.use(cors({ credentials: true, origin: process.env.CLIENT_ORIGIN }));
