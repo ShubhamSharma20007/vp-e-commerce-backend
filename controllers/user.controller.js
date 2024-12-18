@@ -51,7 +51,11 @@ const loginUser = async (req, res) => {
         const token = await user.genrateAuthToken();
 
         //  set the token in the cookie
-        res.cookie('token', token)
+        res.cookie('token', token, {
+            httpOnly: true,
+            secure: true,
+            sameSite: 'None'
+        })
         return res.status(200).json({ token, success: true, message: "User login successfully", user });
     } catch (err) {
         console.log(err)
