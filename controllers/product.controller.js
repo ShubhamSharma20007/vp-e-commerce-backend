@@ -13,6 +13,7 @@ const createProduct = async (req, res) => {
         description,
         category,
         image,
+        stockes
     } = req.body;
 
 
@@ -31,6 +32,7 @@ const createProduct = async (req, res) => {
             price,
             description,
             category,
+            stockes,
             image: file,
 
         })
