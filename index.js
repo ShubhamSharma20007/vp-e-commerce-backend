@@ -27,7 +27,10 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // static public path
-app.use(express.static(path.join(dirname, "../public")))
+
+process.env.NODE_ENV == "producation" ?
+    app.use('/uploads', express.static(path.join(dirname, '/uploads'))) :
+    app.use(express.static(path.join(dirname, "../public")));
 //  cors configuration 
 app.use(cors({ credentials: true, origin: process.env.CLIENT_ORIGIN }));
 
